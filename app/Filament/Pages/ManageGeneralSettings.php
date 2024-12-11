@@ -10,6 +10,7 @@ use Filament\Forms\Components\TextInput;
 use Filament\Forms\Form;
 use Filament\Pages\SettingsPage;
 use Filament\Support\Colors\Color;
+use Illuminate\Support\Facades\Artisan;
 
 class ManageGeneralSettings extends SettingsPage
 {
@@ -44,6 +45,7 @@ class ManageGeneralSettings extends SettingsPage
 
     protected function afterSave(): void
     {
+        Artisan::call('config:clear');
         $this->redirect(route('filament.admin.pages.manage-general-settings'));
     }
 }

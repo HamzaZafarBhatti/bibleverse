@@ -26,6 +26,7 @@ class AppServiceProvider extends ServiceProvider
         $generalSettings = app(GeneralSettings::class);
         if ($generalSettings->app_name !== config('app.name')) {
             setEnvValue('APP_NAME', '"' . $generalSettings->app_name . '"');
+            Artisan::call('config:clear');
         }
         if ($generalSettings->theme_color !== json_encode(cache('app_theme_color'))) {
             Cache::forever('app_theme_color', json_decode($generalSettings->theme_color, true));
