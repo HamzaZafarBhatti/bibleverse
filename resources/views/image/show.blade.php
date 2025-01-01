@@ -43,7 +43,7 @@
 
         footer {
             display: block;
-            position: absolute;
+            position: fixed;
             bottom: 5%;
             text-align: center;
             width: 100%;
@@ -106,7 +106,7 @@
                 </li>
                 <li>
                     <a>
-                        <img src="{{ asset('storage/' . $icon) }}" width="27px">
+                        <img src="{{ asset('storage/' . $icon) }}" width="35px">
                     </a>
                 </li>
                 <li>
